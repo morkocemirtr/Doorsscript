@@ -1,0 +1,723 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+	Name = "Nexus Entity Spawner (V1.6)",
+	LoadingTitle = "Entity Spawner (keybinds, not FE)",
+	LoadingSubtitle = "by nexusxz",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil, -- Create a custom folder for your hub/game
+		FileName = "Big Hub"
+	},
+        Discord = {
+        	Enabled = true,
+        	Invite = "7nsme72Avk", -- The Discord invite code, do not include discord.gg/
+        	RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+        },
+	KeySystem = true, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "Key",
+		Subtitle = "Key System",
+		Note = "Join discord for key",
+		FileName = "SiriusKey",
+		SaveKey = false,
+		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = "31"
+	}
+})
+
+local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Main")
+local Keybind = Tab:CreateKeybind({
+	Name = "Rush (V2)",
+	CurrentKeybind = "L",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+		local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+-- Create entity
+local entity = Creator.createEntity({
+    CustomName = "RushMoving", -- Custom name of your entity
+    Model = "rbxassetid://11564902732", -- Can be GitHub file or rbxassetid
+    Speed = 130, -- Percentage, 100 = default Rush speed
+    DelayTime = 4, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    CanKill = false,
+    BreakLights = true,
+    FlickerLights = {
+        true, -- Enabled
+        1, -- Time (seconds)
+    
+    },
+    Cycles = {
+        Min = 1,
+        Max = 1,
+        WaitTime = 0,
+    },
+    CamShake = {
+        true, -- Enabled
+        {5, 15, 0.1, 1}, -- Shake values (don't change if you don't know)
+        50, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        true, -- Enabled ('false' if you don't want jumpscare)
+        {
+            Image1 = "rbxassetid://10483855823", -- Image1 url
+            Image2 = "rbxassetid://10483999903", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                10483790459, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Sound2 = {
+                10483837590, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled
+                Color3.fromRGB(255, 255, 255), -- Color
+            },
+            Tease = {
+                true, -- Enabled ('false' if you don't want tease)
+                Min = 1,
+                Max = 3,
+            },
+        },
+    },
+    CustomDialog = {"You can", "put your", "custom death", "message here."}, -- Custom death message (can be as long as you want)
+})
+
+-----[[ Advanced ]]-----
+entity.Debug.OnEntitySpawned = function(entityModel)
+    print("Entity has spawned:", entityModel)
+    
+end
+
+entity.Debug.OnEntityDespawned = function(entityModel)
+    print("Entity has despawned:", mentityModelodel)
+end
+
+entity.Debug.OnEntityStartMoving = function(entityModel)
+    print("Entity has started moving:", entityModel)
+end
+
+entity.Debug.OnEntityFinishedRebound = function(entityModel)
+    print("Entity finished rebound:", entityModel)
+end
+
+entity.Debug.OnDeath = function()
+    warn("You died.")
+end
+------------------------
+
+    
+-- Run the created entity
+Creator.runEntity(entity)
+-- The function that takes place when the keybind is pressed
+    		-- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+	end,
+})
+
+local Keybind = Tab:CreateKeybind({
+	Name = "Ambush",
+	CurrentKeybind = "K",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+		local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+-- Create entity
+local entity = Creator.createEntity({
+    CustomName = "AmbushMoving", -- Custom name of your entity
+    Model = "https://github.com/RegularVynixu/Utilities/blob/main/Doors%20Entity%20Spawner/Models/Ambush.rbxm?raw=true", -- Can be GitHub file or rbxassetid
+    Speed = 350, -- Percentage, 100 = default Rush speed
+    DelayTime = 6, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    CanKill = false,
+    BreakLights = true,
+    FlickerLights = {
+        true, -- Enabled
+        1.8, -- Time (seconds)
+    
+    },
+    Cycles = {
+        Min = 1,
+        Max = 6,
+        WaitTime = 1.5,
+    },
+    CamShake = {
+        true, -- Enabled
+        {5, 15, 0.1, 1}, -- Shake values (don't change if you don't know)
+        150, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        true, -- Enabled ('false' if you don't want jumpscare)
+        {
+            Image1 = "rbxassetid://10483855823", -- Image1 url
+            Image2 = "rbxassetid://10483999903", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                10483790459, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Sound2 = {
+                10483837590, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled
+                Color3.fromRGB(255, 255, 255), -- Color
+            },
+            Tease = {
+                true, -- Enabled ('false' if you don't want tease)
+                Min = 1,
+                Max = 3,
+            },
+        },
+    },
+    CustomDialog = {"You can", "put your", "custom death", "message here."}, -- Custom death message (can be as long as you want)
+})
+
+-----[[ Advanced ]]-----
+entity.Debug.OnEntitySpawned = function(entityModel)
+    print("Entity has spawned:", entityModel)
+    wait(1.8)
+    game.Workspace.Ambience_Ambush:Play()
+end
+
+entity.Debug.OnEntityDespawned = function(entityModel)
+    print("Entity has despawned:", mentityModelodel)
+end
+
+entity.Debug.OnEntityStartMoving = function(entityModel)
+    print("Entity has started moving:", entityModel)
+end
+
+entity.Debug.OnEntityFinishedRebound = function(entityModel)
+    print("Entity finished rebound:", entityModel)
+end
+
+entity.Debug.OnDeath = function()
+    warn("You died.")
+end
+------------------------
+
+    
+-- Run the created entity
+Creator.runEntity(entity)
+
+-- The function that takes place when the keybind is pressed
+    		-- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+	end,
+})
+
+local Keybind = Tab:CreateKeybind({
+	Name = "Ambush (KILLER)",
+	CurrentKeybind = "X",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+		 
+local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+-- Create entity
+local entity = Creator.createEntity({
+    CustomName = "Ambush", -- Custom name of your entity
+    Model = "https://github.com/RegularVynixu/Utilities/raw/main/Doors%20Entity%20Spawner/Models/Ambush.rbxm", -- Can be GitHub file or rbxassetid
+    Speed = 350, -- Percentage, 100 = default Rush speed
+    DelayTime = 3.8, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    KillRange = 125,
+    BreakLights = true,
+    BackwardsMovement = false,
+    FlickerLights = {
+        true, -- Enabled/Disabled
+        2.5, -- Time (seconds)
+    },
+    Cycles = {
+        Min = 2,
+        Max = 6,
+        WaitTime = 3,
+    },
+    CamShake = {
+        true, -- Enabled/Disabled
+        {3.5, 20, 0.1, 1}, -- Shake values (don't change if you don't know)
+        150, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        false, -- Enabled/Disabled
+        {
+            Image1 = "rbxassetid://10110576663", -- Image1 url
+            Image2 = "rbxassetid://10110576663", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                8880765497, -- SoundId
+                { Volume = 1 }, -- Sound properties
+            },
+            Sound2 = {
+                9045199073, -- SoundId
+                { Volume = 1 }, -- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled/Disabled
+                Color3.fromRGB(255, 255, 255), -- Color
+            },
+            Tease = {
+                false, -- Enabled/Disabled
+                Min = 1,
+                Max = 3,
+            },
+        },
+    },
+    CustomDialog = {"You died to who you call Ambush.", "It's a tricky one!", "Use what you have learned from rush!"}, -- Custom death message
+})
+
+-----[[ Advanced ]]-----
+entity.Debug.OnEntitySpawned = function(entityTable)
+    print("Entity has spawned:", entityTable.Model)
+    wait(3.2)
+    game.Workspace.Ambience_Ambush:Play()
+end
+
+entity.Debug.OnEntityDespawned = function(entityTable)
+    print("Entity has despawned:", entityTable.Model)
+end
+
+entity.Debug.OnEntityStartMoving = function(entityTable)
+     CanKill = true
+end
+
+entity.Debug.OnEntityFinishedRebound = function(entityTable)
+    print("Entity has finished rebound:", entityTable.Model)
+end
+
+entity.Debug.OnEntityEnteredRoom = function(entityTable, room)
+    print("Entity:", entityTable.Model, "has entered room:", room)
+end
+
+entity.Debug.OnLookAtEntity = function(entityTable)
+    print("Player has looked at entity:", entityTable.Model)
+end
+
+entity.Debug.OnDeath = function(entityTable)
+    local script = game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener
+local v1 = script.Parent.Parent.Parent
+local u2 = require(script.Parent);
+u2.deathtick = tick() + 10;
+script.Jumpscare_Ambush:Play();
+v1.Jumpscare_Ambush.Visible = true;
+local v72 = tick();
+local v73 = math.random(5, 30) / 100;
+local v74 = v73 + math.random(10, 60) / 100;
+local v75 = 0.2;
+for v76 = 1, 100000 do
+	task.wait(0.016666666666666666);
+	v1.Jumpscare_Ambush.ImageLabel.Position = UDim2.new(0.5, math.random(-15, 15), 0.5, math.random(-15, 15));
+	v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(0, math.random(4, 10) / 255, math.random(0, 3) / 255);
+	if v72 + v73 <= tick() then
+		v1.Jumpscare_Ambush.ImageLabel.Visible = true;
+		v73 = v73 + math.random(7, 44) / 100;
+		script.Jumpscare_Ambush.Pitch = math.random(35, 155) / 100;
+		v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(0, math.random(4, 10) / 255, math.random(0, 3) / 255);
+		v1.Jumpscare_Ambush.ImageLabel.Position = UDim2.new(0.5, math.random(-25, 25), 0.5, math.random(-25, 25));
+		v75 = v75 + 0.05;
+		v1.Jumpscare_Ambush.ImageLabel.Size = UDim2.new(v75, 0, v75, 0);
+	end;
+	if v72 + v74 <= tick() then
+		break;
+	end;
+end;
+script.Jumpscare_Ambush2:Play();
+v1.Jumpscare_Ambush.ImageLabel.Visible = true;
+v1.Jumpscare_Ambush.ImageLabel:TweenSize(UDim2.new(9, 0, 9, 0), "In", "Quart", 0.3, true);
+local v77 = tick();
+for v78 = 1, 100 do
+	local v79 = math.random(0, 10) / 10;
+	v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(v79, math.clamp(math.random(25, 50) / 50, v79, 1), math.clamp(math.random(25, 50) / 150, v79, 1));
+	game["Run Service"].RenderStepped:wait();
+	if v77 + 0.3 <= tick() then
+		break;
+	end;
+end;
+script.Jumpscare_Ambush:Stop();
+v1.Jumpscare_Ambush.ImageLabel.Visible = false;
+v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(0, 0, 0);
+v1.Jumpscare_Ambush.Visible = false;
+u2.deathtick = tick();
+return;
+end
+------------------------
+
+-- Run the created entity
+Creator.runEntity(entity)
+
+-- The function that takes place when the keybind is pressed
+    		-- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+	end,
+})
+
+local Keybind = Tab:CreateKeybind({
+	Name = "Rush (KILLER)",
+	CurrentKeybind = "V",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+		local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+-- Create entity
+local entity = Creator.createEntity({
+    CustomName = "Rush", -- Custom name of your entity
+    Model = "rbxassetid://11564902732", -- Can be GitHub file or rbxassetid
+    Speed = 125, -- Percentage, 100 = default Rush speed
+    DelayTime = 3.3, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    CanKill = true,
+    BreakLights = true,
+    FlickerLights = {
+        true, -- Enabled
+        1, -- Time (seconds)
+    
+    },
+    Cycles = {
+        Min = 1,
+        Max = 1,
+        WaitTime = 1.2,
+    },
+    CamShake = {
+        true, -- Enabled
+        {5, 15, 0.1, 1}, -- Shake values (don't change if you don't know)
+        100, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        true, -- Enabled ('false' if you don't want jumpscare)
+        {
+            Image1 = "rbxassetid://10483855823", -- Image1 url
+            Image2 = "rbxassetid://10483999903", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                10483790459, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Sound2 = {
+                10483837590, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled
+                Color3.fromRGB(255, 255, 255), -- Color
+            },
+            Tease = {
+                true, -- Enabled ('false' if you don't want tease)
+                Min = 1,
+                Max = 3,
+            },
+        },
+    },
+    CustomDialog = {"You can", "put your", "custom death", "message here."}, -- Custom death message (can be as long as you want)
+})
+
+-----[[ Advanced ]]-----
+entity.Debug.OnEntitySpawned = function(entityModel)
+    print("Entity has spawned:", entityModel)
+    
+end
+
+entity.Debug.OnEntityDespawned = function(entityModel)
+    print("Entity has despawned:", mentityModelodel)
+end
+
+entity.Debug.OnEntityStartMoving = function(entityModel)
+    print("Entity has started moving:", entityModel)
+end
+
+entity.Debug.OnEntityFinishedRebound = function(entityModel)
+    print("Entity finished rebound:", entityModel)
+end
+
+entity.Debug.OnDeath = function()
+    warn("You died.")
+end
+------------------------
+
+    
+-- Run the created entity
+Creator.runEntity(entity)-- The function that takes place when the keybind is pressed
+    		-- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+	end,
+})
+
+local Keybind = Tab:CreateKeybind({
+	Name = "Screech",
+	CurrentKeybind = "B",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+		  require(game.StarterGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech)(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
+workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])-- The function that takes place when the keybind is pressed
+    		-- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+	end,
+})
+
+local Keybind = Tab:CreateKeybind({
+	Name = "Glitch",
+	CurrentKeybind = "T",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+		require(game.ReplicatedStorage.ClientModules.EntityModules.Glitch).stuff(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
+workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])-- The function that takes place when the keybind is pressed
+    		-- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+	end,
+})
+
+local Keybind = Tab:CreateKeybind({
+	Name = "Halt",
+	CurrentKeybind = "M",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+		require(game.ReplicatedStorage.ClientModules.EntityModules.Shade).stuff(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
+workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])-- The function that takes place when the keybind is pressed
+    		-- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+	end,
+})
+
+local Keybind = Tab:CreateKeybind({
+	Name = "Timothy (only rooms with drawers)",
+	CurrentKeybind = "N",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+		   local a = game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game
+require(a.RemoteListener.Modules.SpiderJumpscare)(require(a), workspace.CurrentRooms["0"].Assets.Dresser.DrawerContainer, 0.2)-- The function that takes place when the keybind is pressed
+    		-- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+	end,
+})
+
+local Keybind = Tab:CreateKeybind({
+	Name = "Seek Eyes",
+	CurrentKeybind = "G",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+		  local a = game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game
+require(game.ReplicatedStorage.ClientModules.EntityModules.Seek).tease(nil, workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")], 100)-- The function that takes place when the keybind is pressed
+    		-- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+	end,
+})
+
+local Keybind = Tab:CreateKeybind({
+	Name = "Rush (V1)",
+	CurrentKeybind = "Z",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+		local speed = 80
+local rush = Instance.new("Model", game:GetService("Teams"))
+rush.Name = "RushMoving"
+game:GetService("ReplicatedStorage").JumpscareModels.RushNew:Clone().Parent = rush
+rush.RushNew.CanCollide = false
+local tweensv = game:GetService("TweenService")
+local currentLoadedRoom
+local firstLoadedRoom
+
+local function setRooms()
+	local tb = {}
+	table.foreach(workspace.CurrentRooms:GetChildren(), function(_, r)
+		if r:FindFirstChild("Base") then
+			table.insert(tb, tonumber(r.Name))
+		end
+	end)
+	firstLoadedRoom = workspace.CurrentRooms[tostring(math.min(unpack(tb)))]
+	currentLoadedRoom = workspace.CurrentRooms[tostring(math.max(unpack(tb)) - 1)]
+	workspace.CurrentRooms.ChildAdded:Connect(function()
+		local tb = {}
+		table.foreach(workspace.CurrentRooms:GetChildren(), function(_, r)
+			if r:FindFirstChild("Base") then
+				table.insert(tb, tonumber(r.Name))
+			end
+		end)
+		currentLoadedRoom = workspace.CurrentRooms[tostring(math.max(unpack(tb)) - 1)]
+	end)
+end
+setRooms()
+
+rush.Parent = workspace
+rush:MoveTo(firstLoadedRoom.Base.Position + Vector3.new(0, 5.2, 0))
+require(game.ReplicatedStorage.ClientModules.Module_Events).flickerLights(tonumber(currentLoadedRoom.Name), 1)
+require(game.ReplicatedStorage.ClientModules.Module_Events).breakLights(firstLoadedRoom)
+
+rush.RushNew.Attachment.BlackTrail.Enabled = true
+rush.RushNew.PlaySound:Play()
+rush.RushNew.Footsteps:Play()
+wait(5)
+for _, room in pairs(workspace.CurrentRooms:GetChildren()) do
+	if not room:FindFirstChild("Nodes") then
+		continue
+	end
+	local nodeNum = #room.Nodes:GetChildren()
+	for _, node: BasePart in pairs(room.Nodes:GetChildren()) do
+		local timeC = (math.abs((node.Position - rush.RushNew.Position).Magnitude)) / speed
+		tweensv
+			:Create(rush.RushNew, TweenInfo.new(timeC, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {
+				CFrame = CFrame.new(node.CFrame.X, node.CFrame.Y + 5.2, node.CFrame.Z),
+			})
+			:Play()
+		local random = math.random(1, nodeNum)
+		if tonumber(node.Name) == random then -- first or last node? just choose please
+			require(game.ReplicatedStorage.ClientModules.Module_Events).breakLights(room)
+		end
+		task.wait(timeC)
+	end
+	if room == currentLoadedRoom then
+		task.wait(1)
+		tweensv
+			:Create(rush.RushNew, TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {
+				CFrame = CFrame.new(rush.RushNew.CFrame.X, -50, rush.RushNew.CFrame.Z),
+			})
+			:Play()
+		wait(0.5)
+		rush:Destroy()
+	end
+end
+-- The function that takes place when the keybind is pressed
+    		-- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+	end,
+})
+
+local Keybind = Tab:CreateKeybind({
+	Name = "A-60",
+	CurrentKeybind = "Q",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+		local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+-- Create entity
+local entity = Creator.createEntity({
+    CustomName = "A-60", -- Custom name of your entity
+    Model = "rbxassetid://11573495258", -- Can be GitHub file or rbxassetid
+    Speed = 1000, -- Percentage, 100 = default Rush speed
+    DelayTime = 5.5, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    CanKill = false,
+    BreakLights = true,
+    FlickerLights = {
+        true, -- Enabled
+        5, -- Time (seconds)
+    
+    },
+    Cycles = {
+        Min = 3,
+        Max = 3,
+        WaitTime = 0,
+    },
+    CamShake = {
+        true, -- Enabled
+        {5, 15, 0.1, 1}, -- Shake values (don't change if you don't know)
+        150, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        true, -- Enabled ('false' if you don't want jumpscare)
+        {
+            Image1 = "rbxassetid://10483855823", -- Image1 url
+            Image2 = "rbxassetid://10483999903", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                10483790459, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Sound2 = {
+                10483837590, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled
+                Color3.fromRGB(255, 255, 255), -- Color
+            },
+            Tease = {
+                true, -- Enabled ('false' if you don't want tease)
+                Min = 1,
+                Max = 3,
+            },
+        },
+    },
+    CustomDialog = {"You can", "put your", "custom death", "message here."}, -- Custom death message (can be as long as you want)
+})
+
+-----[[ Advanced ]]-----
+entity.Debug.OnEntitySpawned = function(entityModel)
+    print("Entity has spawned:", entityModel)
+    
+end
+
+entity.Debug.OnEntityDespawned = function(entityModel)
+    print("Entity has despawned:", mentityModelodel)
+end
+
+entity.Debug.OnEntityStartMoving = function(entityModel)
+    print("Entity has started moving:", entityModel)
+end
+
+entity.Debug.OnEntityFinishedRebound = function(entityModel)
+    print("Entity finished rebound:", entityModel)
+end
+
+entity.Debug.OnDeath = function()
+    warn("You died.")
+end
+------------------------
+
+    
+-- Run the created entity
+Creator.runEntity(entity)
+
+-- The function that takes place when the keybind is pressed
+    		-- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+	end,
+})
+
+local Keybind = Tab:CreateKeybind({
+	Name = "Seek",
+	CurrentKeybind = "O",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+		local EntitySpawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/dreadmania/Scripts/main/EntitySpawner.lua"))()
+local Configuration = {}
+
+EntitySpawner:Spawn("Seek", unpack(Configuration))-- The function that takes place when the keybind is pressed
+    		-- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+	end,
+})
+
+local Tab = Window:CreateTab("Credits", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("Rayfield By Sirius")
+local Section = Tab:CreateSection("V1 Rush by spongus")
+local Section = Tab:CreateSection("V2 Rush by nexusxz (made with Vynixu entity creator)")
+local Section = Tab:CreateSection("Ambush by Vynixu")
+local Section = Tab:CreateSection("Seek by dreadmania")
+local Section = Tab:CreateSection("Made by: nexusxz (discord: nexusxz#0001")
+
+local Tab = Window:CreateTab("Upcoming", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("no ideas burh")
+
+local Tab = Window:CreateTab("Updates", 4483362458) -- Title, Image
+local Paragraph = Tab:CreateParagraph({Title = "Vgj", Content = "Added Seek"})
+
+Rayfield:Notify({
+    Title = "Notification",
+    Content = "Please give credit if you use this, or show the credits tab on the video.",
+    Duration = 10,
+    Image = 4483362458,
+    Actions = { -- Notification Buttons
+        Ignore = {
+            Name = "Okay",
+            Callback = function()
+                print("The user tapped Okay!")
+            end
+		},
+	},
+})
